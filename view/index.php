@@ -26,6 +26,7 @@
                                     <td>Name</td>
                                     <td>Student ID</td>
                                     <td>Phone</td>
+                                    <td>Status</td>
                                     <td>Created At</td>
                                     <td>Updated At</td>
                                     <td>Action</td>
@@ -38,12 +39,14 @@
                                     <td><?= $student['name'] ?></td>
                                     <td><?= $student['student_id'] ?></td>
                                     <td><?= $student['phone'] ?></td>
+                                    <td><span class="badge <?php  echo (($student['status'] == 1) ?  'bg-success' :  'bg-danger'); ?>"><?php  echo (($student['status'] == 1) ?  'Active' :  'Deactive'); ?></span></td>
                                     <td><?= date('d M, Y', strtotime($student['created_at'])) ?></td>
                                     <td><?= $student['updated_at'] ? date('d M, Y', strtotime($student['updated_at'])) : '--' ?>
                                     </td>
                                     <td>
                                         <a href="edit.php?id=<?= $student['id'] ?>" class="btn btn-primary">Edit</a>
-                                        <a href="delete.php?id=<?= $student['id'] ?>" class="btn btn-primary">Delete</a>
+                                        <a href="status.php?id=<?= $student['id'] ?>" class="btn  <?php  echo (($student['status'] == 1) ?  'btn-warning' :  'btn-success'); ?>"><?php  echo (($student['status'] == 1) ?  'Deactive' :  'Active'); ?></a>
+                                        <a href="delete.php?id=<?= $student['id'] ?>" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
