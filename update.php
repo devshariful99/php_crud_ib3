@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $student_id = $_POST['student_id'];
-    $updated_at = date('d M, Y');
+    $updated_at = date('Y-m-d H:i:s');
 
 
     $update = "UPDATE students SET name='$name',student_id='$student_id',phone='$phone',updated_at='$updated_at' WHERE id=$id";
