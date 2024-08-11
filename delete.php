@@ -3,11 +3,10 @@ include('db/db_connection.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM students WHERE id=$id";
+    $sql = "DELETE FROM students WHERE id=$id";
     $result = $conn->query($sql);
     if ($result) {
-        $student = $result->fetch_assoc();
-        include('view/edit.php');
+        header('location:index.php');
     } else {
         echo "Filed";
     }
